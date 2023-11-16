@@ -40,6 +40,13 @@ Apart from the PAM50 subtypes, alternative gene panels are also useful in predic
 
 Subtyping from the three systems are partially associated - molecular pathology largely corresponds to expression profiling, and some histological subtypes also preferentially overlap with particular molecular subtypes (e.g., most invasive lobular, tubular and mucinous carcinomas are luminal, and medullary or metaplastic carcinoma are basal.) Of note, the current PAM50 panel is derived mostly from IDCs, and thus may not fully apply to other rarer histology. Refined signatures for non-IDC subtypes were thus necessary - e.g., the three ILC mRNA subtypes (reactive-like, immune-related, proliferative) by TCGA \citep{ciriello2015comprehensive}, and the 194 prognostic panel of LobSig for ILC \citep{mccart2019lobsig}. It is expected that novel signatures will continue to develop with more sequencing clinical data collected, and hopefully be more personalized, accurate, and indicative. 
 
+\begin{figure}
+  \centering
+  \includegraphics[width=1\linewidth]{intro.subtypes.pdf}
+  \caption{Subtypes and therapeutics of breast cancer}
+  \caption*{The three major subtyping systems of breast cancer, their relations with prognosis or therapy. ER: estrogen receptor, PR: progesterone receptor, HER2: human epidermal growth factor receptor 2.}
+  \label{fig:example}
+\end{figure}
 
 \subsection{Breast Cancer Treatment}
 
@@ -59,7 +66,7 @@ Trastuzumab came up on stage in four trials in 1990s, which greatly improved sur
 
 \subsubsection{Chemotherapy and other systemic therapeutics}
 
-Chemotherapeutic reagents preferentially kill cells which are highly proliferative by multiple proliferation-related manners. Despite low specificity and high toxicity, chemotherapy nevertheless prevents BC recurrence of multiple stages (I - III), and is the only therapy showing effectiveness against TNBCs. BC specific chemo regimen was firstly developed from last 1970s - till now, three major regimes are available - 1) docetaxel / cyclophosphamide (DC), 2) adriamycin / cyclophosphamide (AC) 3) AC + paclitaxel (AC-T). Taxol triggers mitotic arrest by reducing microtubule dynamicity; cyclophosphamide as an alkylating agent generates DNA crosslinks and eventually induces apoptosis; and adriamycin interferes with DNA replication. These three combinations are usually used in metastatic breast cancer, but also apply for primary diseases in cases of highly proliferative ER/PR+/HER-, HER2+, and TNBC tumors. Other reagents are also available as first or later lines in metastatic TNBCs - e.g., platinum, capecitabine, gemcitabine and vinorelbine \citep{waks2019breast}.
+Chemotherapeutic reagents preferentially kill cells which are highly proliferative by multiple proliferation-related manners. Despite low specificity and high toxicity, chemotherapy nevertheless prevents BC recurrence of multiple stages (I - III), and is the only therapy showing effectiveness against TNBCs. BC specific chemo regimen was firstly developed from last 1970s - till now, three major regimes are available - 1) docetaxel / cyclophosphamide (DC), 2) adriamycin / cyclophosphamide (AC) 3) AC\&paclitaxel (AC-T). Taxol triggers mitotic arrest by reducing microtubule dynamicity; cyclophosphamide as an alkylating agent generates DNA crosslinks and eventually induces apoptosis; and adriamycin interferes with DNA replication. These three combinations are usually used in metastatic breast cancer, but also apply for primary diseases in cases of highly proliferative ER/PR+/HER-, HER2+, and TNBC tumors. Other reagents are also available as first or later lines in metastatic TNBCs - e.g., platinum, capecitabine, gemcitabine and vinorelbine \citep{waks2019breast}.
 
 Apart from endo / anti-HER2 / chemotherapies, targeted and immune therapies may also utilized, especially in metastatic BC (MBC). MBC usually shows high invasiveness and rapid resistance development, thus stronger combinatorial regimen and sequential administrations (first and later lines) may apply. These include: CDK4/6 inhibitors (abemaciclib, palbociclib, ribociclib) in ER/PR+, HER2- MBC; PARP inhibitors (Olaparib, Talazoparib) for BRCA1/2 mutated diseases; and mTOR inhibitors in ER/PR+ MBCs \citep{waks2019breast}. Additionally, immune checkpoint blockade (ICB), such as PD-1/PD-L1 and CTLA-4 blockade, has been extensively investigated, especially for HER+ BCs and TNBCs which show high immunogenicity \citep{adams2019current}. Combination of Atezolizumab, the PD-L1 antibody, with nabpaclitaxel was approved by FDA in 2019 for metastatic TNBC which show high PD-L1 expression \citep{schmid2018atezolizumab}. In future, more efficacy biomarkers as well as novel strategies are in need for a further precise treatment scheme development, especially in metastatic breast cancers.
 
@@ -101,13 +108,13 @@ These achievements are transforming, but not enough. Heterogeneity of life and d
 
 \subsection{SCS techniques and applications}
 
-SCS has mainly two categories - techniques which detect one single `omic', or those measuring multiple-omics simultaneously. The first class largely overlaps with bulk sequencing, e.g., chromosome conformation (scHi-C-seq), DNA sequence (SNS, SCI-seq), DNA methylation (scBS-seq, sci-MET, snmC-seq), chromatin accessibility (scATAC-seq, sciATAC-seq, scTHS-seq), histone modifications (scChIP-seq), or lineage tracing (ScarTrace, LINNAEUS). The second class mainly includes DNA+RNA (G\&T-seq), RNA+surface protein (CITE-seq, REAP-seq), and RNA+spatial information (STARmap, MERFISH), etc (see table below for references). Specifically, SCS can be coupled with genome-editing (e.g., CRISPR-Cas9) as to investigate effects like gene KO. A leap in technique development lies in robustness and scalability - from manual operations of low coverage and throughput to automatic workflow with high throughput. Two strategies are frequently adopted: 1) combinatorial indexing, in which cells are barcoded for multiple rounds to be uniquely identified; and 2) droplet-based microfluidics, in which single cells and barcode-beads were initiated as individual droplets, and one-to-one merged afterwards. A summary of commonly used SCS is shown as below.
+SCS has mainly two categories - techniques which detect one single `omic', or those measuring multiple-omics simultaneously. The first class largely overlaps with bulk sequencing, e.g., chromosome conformation (scHi-C-seq), DNA sequence (SNS, SCI-seq), DNA methylation (scBS-seq, sci-MET, snmC-seq), chromatin accessibility (scATAC-seq, sciATAC-seq, scTHS-seq), histone modifications (scChIP-seq), or lineage tracing (ScarTrace, LINNAEUS). The second class mainly includes DNA+RNA (G\&T-seq), RNA+surface protein (CITE-seq, REAP-seq), and RNA+spatial information (STARmap, MERFISH), etc (see table below for references). Specifically, SCS can be coupled with genome-editing (e.g., CRISPR-Cas9) as to investigate effects like gene KO. A leap in technique development lies in robustness and scalability - from manual operations of low coverage and throughput to automatic workflow with high throughput. Two strategies are frequently adopted: 1) combinatorial indexing, in which cells are barcoded for multiple rounds to be uniquely identified; and 2) droplet-based microfluidics, in which single cells and barcode-beads were initiated as individual droplets, and one-to-one merged afterwards. A summary of commonly used SCS is shown as below \citep{stuart2019comprehensive}.
 
-\begin{longtable}{{p{2cm} p{2cm} p{2cm} p{3cm} p{1cm} p{2cm} }}
+\begin{longtable}{{p{2cm} p{3cm} p{1cm} p{3cm} p{1cm} p{3cm} }}
   \caption{SCS Techniques}
   \label{tab:longtable} \\
   \toprule
-  Method & Data Type & Cell Throughput & Feature & Time & Reference \\
+  Method & Data Type & Cell Number & Feature & Time & Reference \\
   \midrule
 \endfirsthead
   \caption*{Continued Table~\thetable\quad SCS Techniques} \\
@@ -120,10 +127,66 @@ SCS has mainly two categories - techniques which detect one single `omic', or th
   scTHS-seq & Chromatin accessibility & 10-20k & droplet-based & 2018 & \citep{lake2018integrative}  \\
   scHi-C-seq & Chromosome conformation & 1-10 & manual isolation of single cells & 2013 & \citep{nagano2013single}  \\
   Sci-Hi-C & Chromosome conformation & 100-2000  & combinatorial-indexing, high-throughput  & 2020 & \citep{ramani2020sci} \\
-  Perturb-seq & CRISPR + RNA & 1-10k & droplet-based scRNA-seq combined with pooled CRISPR screening & 2016 & \citep{dixit2016perturb} \\
+  Perturb-seq & CRISPR\&RNA & 1-10k & droplet-based scRNA-seq combined with pooled CRISPR screening & 2016 & \citep{dixit2016perturb} \\
   SNS & DNA & 10-100 & WGA on flow-sorted nuclei, detect CNV & 2011 & \citep{navin2011tumour} \\
   SCI-seq & DNA & 10-20k & combinatorial-indexing, high-throughput with low cost, detect CNV & 2017 & \citep{vitak2017sequencing} \\ 
   LIANTI & DNA & around 10 & linear amplification of DNA fragments from Tn5 transposition, detect SNV & 2017 & \citep{chen2017single} \\
   SiC-seq & DNA & more than 50k & droplet based, high-throughput & 2017 & \citep{lan2017single} \\
   scRRBS & DNA methylation & 1-10 & detect methylation up to 1.5M CpG sites in mouse embryonic stem cell  & 2013 & \citep{guo2013single} \\
+  scBS-seq & DNA methylation & 5-20 & DNA methylation detection at up to 48.4\% of CpG sites & 2014 & \citep{smallwood2014single} \\
+  snmC-seq2 & DNA methylation & 1-5k & performed on sorted nuclei & 2018 & \citep{luo2018robust} \\
+  sci-MET & DNA methylation & 1-5k & combinatorial-indexing, high-throughput  & 2018 & \citep{mulqueen2018highly} \\
+  scNOMe-seq & DNA methylation\&chromatin accessibility & 10-20 & GpC methyltransferase-based chromatin accessibility mapping and simultaneous DNA methylation detection & 2017 & \citep{pott2017simultaneous} \\
+  scChIP-seq & Histone modifications & 1-10k & droplet-based & 2019 & \citep{rotem2015single} \\
+  Smart-seq2 & RNA & 100-300 & generate full-length mRNA, thus no 3' bias & 2014 & \citep{picelli2013smart} \\
+  Drop-seq & RNA & 1-10k & droplet-based & 2015 & \citep{macosko2015highly} \\
+  InDrop & RNA & 1-10k & droplet-based & 2015 & \citep{klein2015droplet} \\
+  CEL-seq2 & RNA & 100-300 & on chip & 2016 & \citep{hashimshony2016cel} \\
+  10X Chromium & RNA & 1-10k & droplet-based & 2016 & \citep{zheng2017massively} \\
+  sci-RNA-seq & RNA & >=50k & combinatorial-indexing, high-throughput with low cost & 2017 & \citep{cao2017comprehensive} \\
+  Microwell-seq & RNA & 5-10k & microwell based method, high-throughput with low cost & 2018 & \citep{han2018mapping} \\
+  SPLit-seq & RNA & >=50k & combinatorial-indexing, high-throughput with low cost & 2018 & \citep{rosenberg2018single} \\
+  MARS-seq2.0 & RNA & 1-10k & indexed FACS sorting & 2019 & \citep{keren2019mars} \\
+  Smart-seq-total & RNA & 100-300 & capture total RNA, to study non-coding RNA & 2020 & \citep{angermueller2016parallel} \\
+  sci-CAR & RNA\&chromatin accessibility & 1-20k & combinatorial indexing–based coassay & 2018 & \citep{cao2018joint} \\
+  G\&T-seq & RNA\&DNA   & 50-200 & physical separation of DNA and mRNA & 2015 & \citep{macaulay2015g} \\
+  scM\&T-seq & RNA\&DNA methylation & 50-100 & physical separation of DNA and mRNA & 2016 & \citep{angermueller2016parallel} \\
+  seqFISH & RNA\&spatial loci & 100-20k & scRNA-seq with in situ 3D multiplexed imaging  & 2016 & \citep{eng2019transcriptome} \\
+  STARmap & RNA\&spatial loci & 100-30k & scRNA-seq in 3D intact-tissue & 2018 & \citep{wang2018three} \\
+  MERFISH & RNA\&spatial loci & 100-40k & scRNA-seq with fluorescence in situ hybridization & 2018 & \citep{moffitt2018molecular} \\
+  osmFISH & RNA\&spatial loci & 1-5k & in situ RNA hybridization to fluoresecntly labeled DNA probes & 2018 & \citep{codeluppi2018spatial} \\
+  CITE-seq & RNA\&surface protein & 1-10k & scRNA-seq with simultaneous surface protein identity with oligonucleotide-labeled antibodies & 2017 & \citep{stoeckius2017simultaneous} \\
+  REAP-seq & RNA\&surface protein & 1-10k & scRNA-seq with simultaneous surface protein identity with oligonucleotide-labeled antibodies & 2017 & \citep{peterson2017multiplexed} \\
+  CyTOF & Protein & 10k & Up to ~40 different metal-isotype bound mono antibodies simultaneously on single cell & 2015 & \citep{bendall2011single} \\
+  ScarTrace & RNA\&lineage & 1-10k & Lineage deduced from CRISPR-Cas9 induced genome scar, simultaneous quantification of scRNA & 2018 & \citep{alemany2018whole} \\
+  LINNAEUS & RNA\&lineage & 1-10k & Lineage deduced from CRISPR-Cas9 induced genome scar, simultaneous quantification of scRNA & 2018 & \citep{spanjaard2018simultaneous} \\  
 \end{longtable}
+
+Most techniques are developed academically while some were quickly adapted and commercialized. The first commercialized single cell system is Fluidigm’s C1, which automated microfluidic-based single-cell isolation up to 96 cells, coupled by downstream expression analysis. In 2015, InDrop and Drop-seq were developed, which increased throughput tremendously, which directly triggered launching of 10X Chromium in 2016, as the first high-throughput commercialized solution which also has become the current market dominant. 10X adopts a droplet-based Gel Bead-in-Emulsion (GEM) system, which allows for capture up to 10k cells per channel and 8 channels per run. Alternative products are also available, but with smaller market - e.g., InDrop (1CellBio, 2017), Rhapsody (BD, 2017), Tapestri (Mission Bio, 2017), Nadia (Dolomite Bio, 2017), and Genesis (Celsee, 2018; now acquired by Bio-Rad). 10X Chromium started with scRNA-seq, then expanding to additional solutions such as CITE-seq, scCNV (low-throughput DNAseq), scATAC-seq, scVDJ sequencing for immune cells and spatial transcriptomics. The aforementioned products customize single cell isolation, while sequencing was still dominated by conventional NGS platforms like illumina (short-reads), Oxford Nanopore and PacBio (long-reads). Commercialization has brought prosperity to SCS research, while nevertheless shows high-expenditure for each single experiment.
+
+SCS has been applied to multiple biological fields - namely, any system aiming for single cell resolution. Initial SCS studies focused on proposing new method and cell type identification; while later more focusing on omics integration or sequencing combined with CRISPR or other functional assays. The major fields of application, common questions and techniques are briefly listed in the table below. 
+
+\begin{threeparttable}
+\begin{longtable}{{p{3cm} p{8cm} p{5cm}}}
+  \caption{SCS Research Applications}
+  \label{tab:longtable} \\
+  \toprule
+  Field & Questions & Techniques \\
+  \midrule
+\endfirsthead
+  \caption*{Continued Table~\thetable\quad SCS Techniques} \\
+  \toprule
+  Field & Questions & Techniques \\
+  \midrule
+\endhead
+  \bottomrule
+\endfoot
+Cancer & Tumor/circulating tumor cells/tumor microenvironment cell types or states, clonal composition and evolution & scDNA, snDNA, scRNA \\
+Development & Epigenetic/regulatory programs, cell types & scRNA, single cell bisulfate sequencing \\
+Immunology & Immune cell types/states/phenotypes, surface markers, immune repertoire (antigen-binding fragment) & scRNA (VDJ), CyTOF \\
+Microbiology & Microbial composition and genome sequences & FAfluorescence-activated cell sortingCS, scDNA \\
+Neuroscience & Neuron subtypes/post-injury cell states & (spatial) scRNA, (spatial) scDNA, electrophysiology \\
+Reproduction & genetic variants & scDNA \\
+\end{longtable}
+\end{threeparttable}
+

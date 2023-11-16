@@ -35,7 +35,9 @@
 \input{data/abstract}
 
 % 目录
+\pagestyle{tocstyle}
 \tableofcontents
+\pagestyle{plain} %default
 
 % 插图和附表清单
 % 本科生的插图索引和表格索引需要移至正文之后、参考文献前
@@ -54,16 +56,16 @@
 \input{data/chap03}
 \input{data/chap04}
 
-
 % 其他部分
-\backmatter
+
 
 % 参考文献
 \bibliography{ref/refs}  % 参考文献使用 BibTeX 编译
 % \printbibliography       % 参考文献使用 BibLaTeX 编译
 
-\input{data/clinicalstudy}
-
+\setcounter{chapter}{5}
+\include{data/clinicalstudy}
+\backmatter
 % 附录
 % 本科生需要将附录放到声明之后，个人简历之前
 \appendix
@@ -76,6 +78,7 @@
 
 % 声明
 \statement
+
 % 将签字扫描后的声明文件 scan-statement.pdf 替换原始页面
 % \statement[file=scan-statement.pdf]
 % 本科生编译生成的声明页默认不加页脚，插入扫描版时再补上；

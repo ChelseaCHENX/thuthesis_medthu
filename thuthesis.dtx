@@ -3202,6 +3202,19 @@
 %
 % 本科外文专业要求页码字号 12pt。
 %    \begin{macrocode}
+
+\fancypagestyle{statementstyle}{
+  \fancyhf{} % Clear all header and footer fields
+  \fancyhead[C]{声明} % Centered header
+  % Add other header and footer settings as needed
+}
+
+\fancypagestyle{tocstyle}{
+  \fancyhf{} % Clear all header and footer fields
+  \fancyhead[C]{目录} % Centered header
+  % Add other header and footer settings as needed
+}
+
 \fancypagestyle{plain}{%
   \fancyhf{}%
   \renewcommand\footrulewidth{0pt}%
@@ -5263,6 +5276,7 @@
       auto,
       empty,
       plain,
+      statementstyle,
     },
     default = auto,
   },
@@ -5275,6 +5289,8 @@
     default = false,
   },
 }
+
+
 \thu@option@hook{statement-page-number}{%
   \ifthu@statement@page@number@false
     \thusetup{statement-page-style=empty}%
@@ -5314,7 +5330,7 @@
       \ifthu@degree@bachelor
         \thusetup{statement-page-style = empty}%
       \else
-        \thusetup{statement-page-style = plain}%
+        \thusetup{statement-page-style = statementstyle}%
       \fi
     \else
       \ifthu@degree@bachelor
