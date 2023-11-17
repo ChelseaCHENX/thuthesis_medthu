@@ -1,25 +1,23 @@
 % !TeX root = ../thuthesis-example.tex
 
 % 中英文摘要和关键字
-
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}} 
 \begin{abstract}
-  肿瘤异质性在癌症中已被广泛认识，它导致了疾病进展和治疗反应的差异性。传统上，肿瘤异质性被视为不同患者之间的分子亚型，但近期研究也揭示了肿瘤内部异质性的普遍存在，这种异质性通过单个肿瘤内不同细胞状态的多样性反映出来。这些细胞状态直接通过表型、转录组或蛋白质组学轮廓表现出来，它们通常由遗传异常或与肿瘤微环境（TME）的互动而综合形成，并成为潜在的治疗靶点。因此，表征肿瘤及肿瘤衍生实验室模型的异质性对于揭示病理机制和优先考虑可药用靶点至关重要。单细胞测序直接并最有效地解析了这种异质性，其中单细胞RNA测序（scRNA-seq）是捕捉多样细胞状态的最成熟的高通量技术之一。scRNA-seq癌症研究已稳定识别出耐药亚群、多样的TME免疫状态，并成功指导临床决策。然而，乳腺癌（BC）相关研究仍然有限，尤其是对BC某些亚型，如浸润性小叶癌（ILC）的异质性认识较少。
-
-  本文旨在填补这一空白，包括两个场景：一组包含两个主要组织学亚型的BC细胞系；及一例具有相应病人源器官体（PDO）的双侧ILC骨转移。在前者中，我们量化了传统认为是均质的细胞系中的转录组异质性，并描绘了ILC特有的标志物。在后者中，我们针对同一患者的两个转移瘤，就细胞组成和状态、PDO与肿瘤的转录相似性进行了表征，并结合全外显子测序数据提出了可药用的驱动基因或途径。这些发现为个体化医学提供了新的机会，特别是利用下一代测序技术，尤其是scRNA-seq
-
+  \markboth{摘要}{}
+  肿瘤异质性
   % 关键词用“英文逗号”分隔，输出时会自动处理为正确的分隔符
   \thusetup{
-    keywords = {乳腺癌, 异质性, 单细胞RNA测序, 精准医疗},
+    keywords = {异质性, 精准医疗},
   }
 \end{abstract}
 
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}} 
 \begin{abstract*}
-  Tumor heterogeneity, as has been widely recognized in cancer, leads to distinctive disease progression and treatment response. It is traditionally characterized as molecular subtypes among different patients, but recent studies also revealed prevalence of intra-tumor heterogeneity, reflected by diverse cell states within a single tumor. These cell states, directly manifested by phenotypes, transcriptomics or proteomics profiles, comprehensively result from genetic aberrations or interaction with tumor microenvironment (TME), and serve as potential therapy targets. Characterizing heterogeneity of both tumor and tumor-derived lab models is therefore essential in revealing pathognomonic mechanisms and prioritizing druggable targets. Single cell sequencing directly and best dissects such heterogeneity, among which single cell RNA sequencing (scRNA-seq) is the one of the most mature high-throughput techniques to capture diverse cell states. scRNA-seq cancer studies have robustly recognized resistant subpopulations, diverse TME immuno-states, and successfully guided clinical decisions. However, breast cancer (BC) related studies are still limited, and heterogeneity within certain subtypes of BC, e.g., invasive lobular carcinoma (ILC) had been less recognized. 
-  
-  This paper aims for filling this gap in two scenarios: a panel of BC cell lines consisting two major histological subtypes; and a bilateral ILC bone metastases with corresponding patient derived organoids (PDO). In the former case, we quantified transcriptomic heterogeneity within the conventionally-regarded homogeneous cell lines, and illustrated ILC-specific signatures. In the latter case, we characterized two metastases from the same patient, regarding cellular compositions and states, transcriptional resemblance of PDO to tumors, and proposed druggable driver genes or pathways with integration of whole exome sequencing data. These findings suggest novel opportunities in personalized medicine with the use of next-generation of sequencing, scRNA-seq in particular.
-  
+  \markboth{Abstract}{}
+  Tumor heterogeneity
+  This paper aims for 
   % Use comma as separator when inputting
   \thusetup{
-    keywords* = {breast cancer, heterogeneity, scRNA-seq, precision medicine},
+    keywords* = {heterogeneity, precision medicine},
   }
 \end{abstract*}
