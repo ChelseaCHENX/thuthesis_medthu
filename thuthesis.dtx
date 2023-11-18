@@ -3592,18 +3592,30 @@
     \ifthu@language@chinese
       \fontsize{11bp}{14.3bp}\selectfont
     \else
-      \sffamily\fontsize{11bp}{12.65bp}\selectfont
+      \sffamily\fontsize{10.5bp}{12.65bp}\selectfont % changed to arial and all to 10.5pt
     \fi
   \fi
 }
+
+\DeclareCaptionFont{tablefont}{%
+  \sffamily\fontsize{11bp}{12.65bp}\selectfont % changed to arial and all to 10.5pt
+}
+
+\DeclareCaptionFont{figurefont}{%
+  \sffamily\fontsize{10.5bp}{12.65bp}\selectfont % changed to arial and all to 10.5pt
+}
+
 \captionsetup{
-  font           = thu,
-  labelsep       = quad,
+  %font           = thu,
+  labelsep       = space,%quad,
   skip           = 6bp,
   figureposition = bottom,
   tableposition  = top,
 }
-\captionsetup[sub]{font=thu}
+%\captionsetup[sub]{font=thu}
+\captionsetup[table]{font=tablefont}
+\captionsetup[figure]{font=figurefont}
+
 \renewcommand{\thesubfigure}{(\alph{subfigure})}
 \renewcommand{\thesubtable}{(\alph{subtable})}
 % \renewcommand{\p@subfigure}{:}
