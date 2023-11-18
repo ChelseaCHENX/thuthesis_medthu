@@ -1996,7 +1996,7 @@
         \def\thu@acknowledgements@name{ACKNOWLEDGEMENTS}%
         \def\thu@resume@name{PUBLICATIONS}%
       \else
-        \def\contentsname{目\hspace{1em}录}%
+        \def\contentsname{目\hspace{1em}录}%目\hspace{1em}录
         \def\listfigurename{插图清单}%
         \def\listtablename{附表清单}%
         \def\thu@list@figure@table@name{图表清单}%
@@ -2550,7 +2550,7 @@
         \thusetup{cjk-font = windows}
       }{
         \IfFileExists{\thu@mac@word@font@path/SimSun.ttf}{
-          \thusetup{cjk-font = mac-word}
+          \thusetup{cjk-font = mac-word} % Word/Contents/Resources/DFonts
         }{
           \thu@error{Cannot find "SimSun" font}
         }
@@ -3205,13 +3205,15 @@
 
 \fancypagestyle{statementstyle}{
   \fancyhf{} % Clear all header and footer fields
-  \fancyhead[C]{声明} % Centered header
-  % Add other header and footer settings as needed
+  \renewcommand\headrulewidth{0.75bp}%
+  \fancyhead[C]{
+    \wuhao
+   声明} % copying plain other than content (\leftmark to new name)
 }
 
 \fancypagestyle{tocstyle}{
   \fancyhf{} % Clear all header and footer fields
-  \fancyhead[C]{目录} % Centered header
+  \fancyhead[C]{\wuhao 目录} % Centered header
   % Add other header and footer settings as needed
 }
 
@@ -3607,7 +3609,7 @@
 
 \captionsetup{
   %font           = thu,
-  labelsep       = space,%quad,
+  labelsep       = quad,
   skip           = 6bp,
   figureposition = bottom,
   tableposition  = top,
@@ -3771,7 +3773,7 @@
     \else
       \ctexset{
         chapter = {
-          name   = \chaptername\space,
+          name   = \chaptername\quad, % to quad, ie, one charac
           number = \thu@english@number{chapter},
         },
       }%
@@ -3854,19 +3856,19 @@
           nameformat  = , %\MakeUppercase,
           titleformat = , %\MakeUppercase,
           name        = \chaptername\space,
-          aftername   = \space,
+          aftername   = \quad,% to quad
         },
         section = {
           format     = \sffamily\bfseries\fontsize{14bp}{20bp}\selectfont,
-          aftername  = \space,
+          aftername  = \quad,
         },
         subsection = {
           format     = \sffamily\bfseries\fontsize{13bp}{20bp}\selectfont,
-          aftername  = \space,
+          aftername  = \quad,
         },
         subsubsection = {
           format     = \sffamily\bfseries\fontsize{12bp}{20bp}\selectfont,
-          aftername  = \space,
+          aftername  = \quad,
         },
       }%
     \fi
@@ -3967,11 +3969,15 @@
 %    \begin{macrocode}
 \renewcommand\tableofcontents{%
   \ifthu@degree@graduate
+    
     \thu@chapter*{\contentsname}%
+    \pagestyle{tocstyle}
   \else
     \thu@chapter*[]{\contentsname}%
   \fi
   \@starttoc{toc}%
+  \clearpage
+  \pagestyle{plain}
 }
 \thu@define@key{
   toc-chapter-style = {
@@ -4069,15 +4075,15 @@
         %[\z@]{\addvspace{6bp}\heiti}
         [\z@]{\addvspace{6bp}\sffamily}
         %{\contentspush{\MakeUppercase{\thecontentslabel}\space}\MakeUppercase}{\MakeUppercase}
-        {\contentspush{\thecontentslabel\space}}{}
+        {\contentspush{\thecontentslabel\quad}}{}
         {\rmfamily\thu@leaders\thecontentspage}%
       \titlecontents{section}
         [1em]{}
-        {\contentspush{\thecontentslabel\space}}{}
+        {\contentspush{\thecontentslabel\quad}}{}
         {\thu@leaders\thecontentspage}%
       \titlecontents{subsection}
         [2em]{}
-        {\contentspush{\thecontentslabel\space}}{}
+        {\contentspush{\thecontentslabel\quad}}{}
         {\thu@leaders\thecontentspage}%
     \fi
   \fi
@@ -5052,30 +5058,34 @@
   \vskip 13bp%
   \begingroup
     \fontsize{14bp}{26bp}\selectfont
-    本人完全了解清华大学有关保留、使用学位论文的规定，即：\par
-    清华大学拥有在著作权法规定范围内学位论文的使用权，其中包括：%
-    （1）\nobreak 已获学位的研究生必须按学校规定提交学位论文，%
-    学校可以采用影印、缩印或其他复制手段保存研究生上交的学位论文；\allowbreak
-    （2）\nobreak 为教学和科研目的，学校可以将公开的学位论文作为资料在图书馆、资料室等场所供校内师生阅读，%
+    本人完全了解清华大学有关保留、使用毕业论文的规定，即：\par
+    清华大学拥有在著作权法规定范围内毕业论文的使用权，其中包括：%
+    （1）\nobreak 已获学位的研究生必须按学校规定提交毕业论文，%
+    学校可以采用影印、缩印或其他复制手段保存研究生上交的毕业论文；\allowbreak
+    （2）\nobreak 为教学和科研目的，学校可以将公开的毕业论文作为资料在图书馆、资料室等场所供师生阅读，%
     或在校园网上供校内师生浏览部分内容；\allowbreak
     \ifthu@degree@doctor
-      （3）\nobreak 根据《中华人民共和国学位条例暂行实施办法》及上级教育主管部门具体要求，向国家图书馆报送相应的学位论文。%
+      （3）\nobreak 根据《中华人民共和国学位条例暂行实施办法》及相关部门具体要求，向国家图书馆报送相应的学位论文。%
     \else
       （3）\nobreak 按照上级教育主管部门督导、抽查等要求，报送相应的学位论文。%
     \fi
     \par
     本人保证遵守上述规定。\par
+    \vskip 13bp%
+    \textbf{（保密的论文在解密后遵守此规定）}\par
   \endgroup
   \vskip 33bp%
   \begingroup
     \fontsize{12bp}{23.4bp}\selectfont
     \parindent\z@
-    \leftskip 43bp%
-    作者签名：\hspace{4bp}\thu@underline[7em]{}\hspace{47bp}%
-    导师签名：\hspace{4bp}\thu@underline[7em]{}\par
+    %\leftskip 43bp%
+    签\hspace{1em}名：\hspace{1bp}\thu@underline[7em]{}\hspace{0bp}%
+    基础导师签名：\hspace{1bp}\thu@underline[7em]{}\hspace{0bp}%
+    日\hspace{1em}期：\hspace{1bp}\thu@underline[5em]{}\par
     \vskip 6bp%
-    日\hspace{2em}期：\hspace{4bp}\thu@underline[7em]{}\hspace{47bp}%
-    日\hspace{2em}期：\hspace{4bp}\thu@underline[7em]{}\par
+    \leftskip 137bp%% visually adjusted (super hard coded)
+    临床导师签名：\hspace{1bp}\thu@underline[7em]{}\hspace{0bp}%
+    日\hspace{1em}期：\hspace{1bp}\thu@underline[5em]{}\par
   \endgroup
 }
 \newcommand\thu@copyright@page@bachelor{%
@@ -5355,13 +5365,13 @@
   \ifx\thu@statement@file\@empty
     \thusetup{language=chinese}%
     \begingroup
-      \ifthu@degree@graduate
-        \ifthu@main@language@english
-          \ctexset{%
-            chapter/format = \centering\sffamily\fontsize{16bp}{20bp}\selectfont,
-          }%
-        \fi
-      \fi
+      %\ifthu@degree@graduate
+      % \ifthu@main@language@english
+      %   \ctexset{%
+      %      chapter/format = \centering\sffamily\fontsize{16bp}{20bp}\selectfont,
+      %    }%
+      %  \fi
+      %\fi
       \thu@chapter*{\thu@statement@name}%
     \endgroup
     \thispagestyle{\thu@statement@page@style}%
@@ -5835,7 +5845,7 @@
 %    \end{macrocode}
 %
 % 参考文献表的正文部分用五号字。
-% 行距采用固定值 16 磅，段前空 3 磅，段后空 0 磅。
+% 行距采用固定值 16 磅，段前空 3 磅，段后空 0 磅。 医学实验班 - 行距采用固定值 15 磅
 %
 % 本科生要求宋体五号/Times New Roman 10.5 pt，固定行距 17pt，段前后间距 3pt；
 % 英文专业要求悬挂缩进 0.5inch（1.27 厘米）。
@@ -5853,7 +5863,7 @@
         \setlength{\bibhang}{0.5in}%
       \fi
     \else
-      \renewcommand\bibfont{\fontsize{10.5bp}{16bp}\selectfont}%
+      \renewcommand\bibfont{\fontsize{10.5bp}{15bp}\selectfont}% changed to 15bp
       \setlength{\bibsep}{3bp \@plus 3bp \@minus 3bp}%
       \setlength{\bibhang}{21bp}%
     \fi
@@ -6395,8 +6405,8 @@
       subsection = {
         beforeskip = 0pt,
         afterskip  = 0pt,
-        format     = \bfseries\normalsize,
-        indent     = \parindent,
+        format     = \sffamily\normalsize, %\bfseries\normalsize
+        indent     = 0pt, %\parindent
         numbering  = false,
       },
     }%
@@ -6478,57 +6488,25 @@
     \BODY\clearpage
   \fi
 }
-\NewEnviron{commentsbasic}[1][]{%
+
+\newenvironment{commentsbasic}{%
   \thu@end@appendix@ref@section
-  \ifthu@degree@graduate
-    \@mainmatterfalse
-    \kv@define@key{thu@commentsbasic}{name}{\let\thu@commentsbasic@name\kv@value}%
-    \kv@set@family@handler{thu@comments}{%
-      \ifx\kv@value\relax
-        \let\thu@commentsbasic@name\kv@key
-      \else
-        \kv@handled@false
-      \fi
-    }%
-    \kvsetkeys{thu@commentsbasic}{#1}%
-    \chapter{\thu@commentsbasic@name}%
-    \BODY\clearpage
-  \fi
+  \@mainmatterfalse
+  \thu@chapter*{基础导师学术评语}%
 }
-\NewEnviron{commentsclinic}[1][]{%
+
+\newenvironment{commentsclinic}{%
   \thu@end@appendix@ref@section
-  \ifthu@degree@graduate
-    \@mainmatterfalse
-    \kv@define@key{thu@commentsclinic}{name}{\let\thu@commentsclinic@name\kv@value}%
-    \kv@set@family@handler{thu@comments}{%
-      \ifx\kv@value\relax
-        \let\thu@commentsclinic@name\kv@key
-      \else
-        \kv@handled@false
-      \fi
-    }%
-    \kvsetkeys{thu@commentsclinic}{#1}%
-    \chapter{\thu@commentsclinic@name}%
-    \BODY\clearpage
-  \fi
+  \@mainmatterfalse
+  \thu@chapter*{临床导师学术评语}%
 }
-\NewEnviron{loa}[1][]{%
+
+\newenvironment{loa}{%
   \thu@end@appendix@ref@section
-  \ifthu@degree@graduate
-    \@mainmatterfalse
-    \kv@define@key{thu@loa}{name}{\let\thu@loa@name\kv@value}%
-    \kv@set@family@handler{thu@comments}{%
-      \ifx\kv@value\relax
-        \let\thu@loa@name\kv@key
-      \else
-        \kv@handled@false
-      \fi
-    }%
-    \kvsetkeys{thu@loa}{#1}%
-    \chapter{\thu@loa@name}%
-    \BODY\clearpage
-  \fi
+  \@mainmatterfalse
+  \thu@chapter*{Letter of Authorization}%
 }
+
 %    \end{macrocode}
 % \end{environment}
 %
